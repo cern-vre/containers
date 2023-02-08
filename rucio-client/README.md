@@ -1,10 +1,16 @@
-# rucio-client-container
+## Automatised build of the rucio-client container
 
-Rucio client enabled for the ESCAPE VO.
+This repository contains the Dockerfile for the Rucio client enabled for the [ESCAPE](https://projectescape.eu/) VO, used to authenticate users to the VRE.
 
-Please refer to https://github.com/rucio/containers/tree/master/clients for more information.
+Please refer to the official [Rucio  clients repo] (https://github.com/rucio/containers/tree/master/clients) for more information.
 
-## Build image (python 3 by default)
+If you want to change something in the Docker image, you can change the Dockerfile, push the changes to the `main` branch, and the CI/CD workflow will publish the new image on the [ESCAPE DockerHub](https://hub.docker.com/orgs/projectescape/). 
+
+## Rucio-clients version change
+
+Change the BASETAG file to your desired most recent version. 
+
+## Build Docker image manually (python 3 by default)
 
 ```bash
 $ make latest
