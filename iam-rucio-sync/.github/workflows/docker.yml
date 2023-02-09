@@ -15,7 +15,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_ID: rucio-client
+  IMAGE_ID: iam-sync
   IMAGE_NAME: projectescape/iam-sync
 
 
@@ -30,7 +30,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build the container
-        working-directory: rucio-client
+        working-directory: iam-rucio-sync
         run: make latest
 
       # Tag the image created so that it can be pushed
