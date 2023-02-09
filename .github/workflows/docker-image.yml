@@ -1,4 +1,4 @@
-ame: Docker
+name: Docker
 
 # Controls when the workflow will run
 on:
@@ -54,7 +54,7 @@ jobs:
         run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
 
-ame: Docker
+name: Docker
 
 # Controls when the workflow will run
 on:
