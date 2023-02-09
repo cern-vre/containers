@@ -32,7 +32,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build the container
-        working-directory: rucio-client-container
+        working-directory: rucio-client
         run: make latest
 
       # Tag the image created so that it can be pushed
