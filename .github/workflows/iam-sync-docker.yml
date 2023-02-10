@@ -36,8 +36,8 @@ jobs:
         run: make latest
 
       # Tag the image created so that it can be pushed
-      - name: Tag image 
-        run: docker tag ${{ env.IMAGE_ID }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+     # - name: Tag image 
+    #    run: docker tag ${{ env.IMAGE_ID }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       # Login against a Docker registry
       # https://github.com/docker/login-action
@@ -48,6 +48,9 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
+      - name: Build the Docker image
+        run: make build
+      
       # Build and push Docker image with Buildx 
       # https://github.com/docker/build-push-action
       - name: Push Docker image
