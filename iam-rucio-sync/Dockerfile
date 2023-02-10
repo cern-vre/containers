@@ -16,14 +16,14 @@ RUN yum -y install git htop voms-clients-cpp
 WORKDIR /home/user/
 
 # # clone repos
-RUN git clone https://github.com/cern-vre/containers/iam-rucio-sync.git
+RUN git clone https://github.com/cern-vre/containers.git
 
 # install python requirments
 RUN pip install --upgrade pip
 
 RUN echo $(pwd)
 
-RUN pip install -r /home/user/iam-rucio-sync/db_ops/requirements.txt
+RUN pip install -r /home/user/containers/iam-rucio-sync/db_ops/requirements.txt
 
 RUN pip install rucio-clients==$RUCIO_VERSION
 RUN pip install rucio==$RUCIO_VERSION
