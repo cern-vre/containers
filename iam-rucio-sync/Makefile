@@ -2,7 +2,7 @@
 baseimage = rucio/rucio-server
 basetag = release-1.29.5
 # target image details
-imagetarget = projectescape/eosc-crons
+imagetarget = projectescape/iam-rucio-sync
 imagetag = $(basetag)
 # rucio version to be used inside the container
 rucio_version = 1.29.5
