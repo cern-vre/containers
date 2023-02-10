@@ -51,5 +51,5 @@ jobs:
       # Build and push Docker image with Buildx 
       # https://github.com/docker/build-push-action
       - name: Push Docker image
-        run: make push
-        #docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+        # run: make push
+        run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
