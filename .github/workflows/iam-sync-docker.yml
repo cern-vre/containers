@@ -36,8 +36,8 @@ jobs:
         run: make build
 
       # Tag the image created so that it can be pushed
-     # - name: Tag image 
-    #    run: docker tag ${{ env.IMAGE_ID }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      - name: Tag image 
+        run: docker tag ${{ env.IMAGE_ID }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       # Login against a Docker registry
       # https://github.com/docker/login-action
