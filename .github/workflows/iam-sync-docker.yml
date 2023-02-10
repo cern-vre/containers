@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build the container
         working-directory: iam-rucio-sync
-        run: make build
+        run: make latest
       # Tag the image created so that it can be pushed
       - name: Tag image 
         run: docker tag ${{ env.IMAGE_ID }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
