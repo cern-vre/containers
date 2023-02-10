@@ -2,19 +2,20 @@
 baseimage = rucio/rucio-server
 basetag = release-1.30.0
 # target image details
-imagetarget = projectescape/iam-rucio-sync
+# imagetarget = projectescape/iam-rucio-sync
 imagetag = $(basetag)
 # rucio version to be used inside the container
 rucio_version = 1.30.0
 
 build:
 # create image with two different tags, one for versioning and one as `stable`
-	docker build . -f Dockerfile --build-arg BASEIMAGE=$(baseimage) --build-arg BASETAG=$(basetag) --build-arg RUCIO_VERSION=$(rucio_version) --pull --no-cache --tag $(imagetarget):$(imagetag) --tag $(imagetarget):latest
+	# docker build . -f Dockerfile --build-arg BASEIMAGE=$(baseimage) --build-arg BASETAG=$(basetag) --build-arg RUCIO_VERSION=$(rucio_version) --pull --no-cache --tag $(imagetarget):$(imagetag) --tag $(imagetarget):latest
+        docker build . -f Dockerfile --build-arg BASETAG=$(basetag) --no-cache --tag iam-rucio-syn:latest
 
-run:
-	docker run --rm -it $(imagetarget):$(imagetag)
+#run:
+	#docker run --rm -it $(imagetarget):$(imagetag)
 
-push:
+#push:
 # push both versioned and stable image
 	docker push $(imagetarget):$(imagetag)
 	docker push $(imagetarget):latest
