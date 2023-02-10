@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+BASETAG=`cat BASETAG`
+
+if [ "$DOCKER_TAG" == "latest" ]; then
+  docker build . -f $DOCKERFILE_PATH --build-arg BASETAG=$BASETAG --tag $IMAGE_NAME
