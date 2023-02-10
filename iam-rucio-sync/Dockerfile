@@ -1,9 +1,8 @@
-ARG BASEIMAGE
+ARG BASEIMAGE=rucio/rucio-server
 ARG BASETAG
-
 FROM $BASEIMAGE:$BASETAG
 
-ARG RUCIO_VERSION
+ARG RUCIO_VERSION=1.30.0
 
 # cleanup yum cache
 RUN yum upgrade -y && \
