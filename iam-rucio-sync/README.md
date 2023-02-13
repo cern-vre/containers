@@ -8,7 +8,7 @@ If you want to change something in the Docker image, you can change the Dockerfi
 
 ## Rucio-clients version change
 
-Change the Makefile with the desired variables. ASETAG file to your desired most recent version. 
+Change the Makefile with the desired variables. BASETAG file to your desired most recent version. 
 
 ## Build Docker image manually (python 3 by default)
 
@@ -20,4 +20,17 @@ Log in to Docker with `docker login`, then:
 
 ```bash
 $ make push
+```
+
+#h Synchronization of ESCAPE Rucio Instance with IAM ESCAPE Users
+
+1) Configure iam-config.conf or set up the Environment Variables to point to the correct IAM Server and provide Client ID and Secret.
+2) The Rucio Server should be installed and the DB should be configured before running the script.
+
+```bash
+export IAM_SERVER=https://iam-escape.cloud.cnaf.infn.it
+export IAM_CLIENT_ID=my_client_id
+export IAM_CLIENT_SECRET=my_secret
+
+python sync_iam_rucio.py
 ```
