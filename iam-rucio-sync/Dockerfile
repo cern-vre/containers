@@ -48,6 +48,6 @@ RUN curl -o /usr/bin/kubectl -L https://storage.googleapis.com/kubernetes-releas
 RUN chmod +x /usr/bin/kubectl
 
 # ESCAPE Rucio setup
-ADD --chown=user:user etc/rucio/rucio.cfg.escape.j2 /opt/user/rucio.cfg.j2
+ADD --chown=user:user rucio.cfg.escape.j2 /opt/user/rucio.cfg.j2
 
 ENTRYPOINT ["/bin/bash"]
