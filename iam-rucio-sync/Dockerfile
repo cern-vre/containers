@@ -27,8 +27,6 @@ RUN pip install -r /home/user/containers/iam-rucio-sync/requirements.txt
 RUN pip install rucio-clients==$RUCIO_VERSION
 RUN pip install rucio==$RUCIO_VERSION
 
-COPY /home/user/containers/iam-rucio-sync/rucio.cfg.escape.j2 /opt/rucio/etc/rucio.cfg.escape.j2
-
 USER root
 # EGI trust anchors
 RUN curl -o /etc/yum.repos.d/EGI-trustanchors.repo https://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo \
