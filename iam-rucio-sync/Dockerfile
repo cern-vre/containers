@@ -27,6 +27,8 @@ RUN pip install -r /home/user/containers/iam-rucio-sync/requirements.txt
 RUN pip install rucio-clients==$RUCIO_VERSION
 RUN pip install rucio==$RUCIO_VERSION
 
+COPY /home/user/containers/iam-rucio-sync/rucio.cfg.escape.j2 /opt/rucio/etc/rucio.cfg.escape.j2
+
 USER root
 # EGI trust anchors
 RUN curl -o /etc/yum.repos.d/EGI-trustanchors.repo https://repository.egi.eu/sw/production/cas/1/current/repo-files/EGI-trustanchors.repo \
@@ -46,8 +48,5 @@ RUN mkdir -p /etc/grid-security/vomsdir/escape \
 # Install latest kubectl
 RUN curl -o /usr/bin/kubectl -L https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 RUN chmod +x /usr/bin/kubectl
-
-# ESCAPE Rucio setup
-ADD rucio.cfg.escape.j2 /opt/user/rucio.cfg.j2
 
 ENTRYPOINT ["/bin/bash"]
